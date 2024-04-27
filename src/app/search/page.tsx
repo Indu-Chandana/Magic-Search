@@ -94,6 +94,11 @@ const Page = async ({ searchParams }: pageProps) => {
         products.push(...vectorProducts)
     }
 
+    // const test1 = ['ee','rr','tt']
+    // const test2 = ['ee']
+
+    // test1.find((val) => test2.includes(val))
+
     return (
         <ul className='py-4 divide-y divide-zinc-100 bg-white shadow-md rounded-b-md'>
             {products.slice(0, 3).map((product) => (
