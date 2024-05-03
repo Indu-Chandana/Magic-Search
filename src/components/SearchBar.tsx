@@ -3,16 +3,19 @@ import React, { useRef, useState, useTransition } from 'react'
 import { Input } from './ui/input'
 import { Button } from './ui/button'
 import { Loader2, Search } from 'lucide-react'
-import { useRouter } from 'next/navigation' // this is for new nextJS 
+import { useRouter, useSearchParams } from 'next/navigation' // this is for new nextJS 
 
 const SearchBar = () => {
+
+    const searchParams = useSearchParams()
+    const defaultQuery = searchParams.get("query") || ''
 
     const router = useRouter()
 
     const inputRef = useRef<HTMLInputElement>(null) // we are assign this to HTML input element
     const [isSearching, startTransition] = useTransition()
 
-    const [query, setQuery] = useState<string>('')
+    const [query, setQuery] = useState<string>(defaultQuery)
 
     const search = () => {
         startTransition(() => {
